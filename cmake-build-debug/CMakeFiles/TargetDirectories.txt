@@ -1,0 +1,3 @@
+D:/CAMILA/FACULTAD/3 AÑO/COMPUTACION PARALELA/TPs/algoritmoSecuencial/cmake-build-debug/CMakeFiles/untitled.dir
+D:/CAMILA/FACULTAD/3 AÑO/COMPUTACION PARALELA/TPs/algoritmoSecuencial/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/CAMILA/FACULTAD/3 AÑO/COMPUTACION PARALELA/TPs/algoritmoSecuencial/cmake-build-debug/CMakeFiles/rebuild_cache.dir
