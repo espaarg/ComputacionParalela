@@ -1,4 +1,4 @@
-# Install script for directory: D:/CAMILA/FACULTAD/3 AÑO/COMPUTACION PARALELA/TPs/algoritmoSecuencial
+# Install script for directory: D:/CAMILA/FACULTAD/3 AÑO/COMPUTACION PARALELA/TPs/ComputacionParalela
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/CAMILA/FACULTAD/3 AÑO/COMPUTACION PARALELA/TPs/algoritmoSecuencial/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/CAMILA/FACULTAD/3 AÑO/COMPUTACION PARALELA/TPs/ComputacionParalela/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
