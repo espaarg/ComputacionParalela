@@ -18,6 +18,9 @@ void combinarArreglos(int arregloRecibido[], int baseArray, int valorMedio, int 
         parteALTA[j] = arregloRecibido[valorMedio + 1 + j];
 
 
+
+
+
     int i, j, posicionAsignacion;
 
     i = 0; //ELEMENTO USADO PARA EL BUCLE
