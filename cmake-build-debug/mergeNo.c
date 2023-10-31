@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     if(argc < 2){
         if(rank == 0)
-            cout<< "No recibio parametro con el tamaÃ±o de vector, por defecto sera 1000"<<endl;
+            cout<<"No recibió parámetro con el tamaño de vector, por defecto será 1000"<<endl;
         tama = 1000;
     }else{
         tama = atoi(argv[1]);

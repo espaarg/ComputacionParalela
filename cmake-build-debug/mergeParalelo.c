@@ -8,7 +8,7 @@
 int main(int argc, char **argv) {
 
     //declaracion de las variables a utilizar
-    int rank, size, tamanio_arreglo, *arregloDesordenado, *arregloOrdenado, *subArreglo;
+    int rank, size, tamanio_arreglo, *arregloDesordenado, *arregloOrdenado, *subArreglo, *subArregloMaster;
 
     MPI_Init(&argc, &argv); //iniciamos MPI
     MPI_Comm_rank(MPI_COMM_WORLD, &rank); //obtener identificador
