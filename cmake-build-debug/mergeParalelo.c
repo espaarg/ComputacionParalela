@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//#include <vector>
+#include <math.h>
 #include <mpi.h>
-//#include <iostream>
+
+
 
 
 int main(int argc, char **argv) {
@@ -15,16 +16,15 @@ int main(int argc, char **argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &rank); //obtener identificador
     MPI_Comm_size(MPI_COMM_WORLD, &size); //obtener la cantidad de procesos
 
-    // SOLICITA AL USUARIO QUE INGRESE EL TAMAÑO DEL ARREGLO
-    printf("Ingrese la cantidad de elementos en el arreglo: ");
-    scanf("%d", &tamanio_arreglo);
-
-
-    //CREACION DEL ARREGLO
-    // reservamos el espacio para el arreglo a ordenar
-    arregloDesordenado = (int *)malloc( sizeof(int) * tamanio_arreglo);
-
     if (rank == 0) {
+        // EL MASTER SOLICITA AL USUARIO QUE INGRESE EL TAMAÑO DEL ARREGLO
+        printf("Ingrese la cantidad de elementos en el arreglo: ");
+        scanf("%d", &tamanio_arreglo);
+
+        //CREACION DEL ARREGLO
+        // reservamos el espacio para el arreglo a ordenar
+        arregloDesordenado = (int *) malloc(sizeof(int) * tamanio_arreglo);
+
         //llenar el arreglo a ordenar aleatoriamente
         srand(time(NULL)); //inicializar la semilla aleatoria
         for (int i = 0; i < tamanio_arreglo; i++) {
@@ -32,18 +32,30 @@ int main(int argc, char **argv) {
         }
     }
 
-    //reservamos espacio para el arreglo de cada proceso
-    subArreglo = (int *)malloc( sizeof(int) * (tamanio_arreglo/(size-1)));
-
-    if (tamanio_arreglo % (size-1) != 0){
-        MPI_Scatter(&arregloDesordenado[0], tamanio_arreglo/(size-1), MPI_INT, &((*subArreglo)[0]), tamanio_arreglo/(size-1), MPI_INT, 0, MPI_COMM_WORLD);
-    }
-    else {
-        MPI_Scatter(&arregloDesordenado[0], tamanio_arreglo/(size-1), MPI_INT, &((*subArreglo)[0]), tamanio_arreglo/(size-1), MPI_INT, 0, MPI_COMM_WORLD);
+    if (rank != 0){
+        //reservamos espacio para el arreglo de cada proceso
+        subArreglo = (int *) malloc(sizeof(int) * (tamanio_arreglo / (size - 1)));
     }
 
-    //procesos ordenan su subarreglo
-    qsort(subArreglo, tamanio_arreglo/(size-1), sizeof(int), compararElementos);
+    if (tamanio_arreglo % (size - 1) != 0) {
+        //repartimos el arreglo entre todos los procesos
+        MPI_Scatter(&arregloDesordenado[0], tamanio_arreglo / (size - 1), MPI_INT, &((*subArreglo)[0]),
+        tamanio_arreglo / (size - 1), MPI_INT, 0, MPI_COMM_WORLD);
+        if (rank == 0){
+            subArregloMaster = (int *)malloc(sizeof(int) * (tamanio_arreglo % (size-1)));
+        }
+    } else {
+        MPI_Scatter(&arregloDesordenado[0], tamanio_arreglo / (size - 1), MPI_INT, &((*subArreglo)[0]),
+        tamanio_arreglo / (size - 1), MPI_INT, 0, MPI_COMM_WORLD);
+    }
+
+    //cada proceso ordena su arreglo
+    int i;
+    while ( i <= tamanio_arreglo/(size-1)){
+        if (subArreglo[i] > subArreglo[i+1]){
+            subArreglo[i+1] = subArreglo[i];
+        }
+    }
 
     MPI_Finalize();
 
