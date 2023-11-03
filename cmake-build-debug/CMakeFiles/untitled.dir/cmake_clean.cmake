@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/untitled.dir/mergeNo.c.obj.d"
   "CMakeFiles/untitled.dir/mergeParalelo.c.obj"
   "CMakeFiles/untitled.dir/mergeParalelo.c.obj.d"
+  "CMakeFiles/untitled.dir/pruebaTruncar.c.obj"
+  "CMakeFiles/untitled.dir/pruebaTruncar.c.obj.d"
   "libuntitled.dll.a"
   "untitled.exe"
   "untitled.exe.manifest"

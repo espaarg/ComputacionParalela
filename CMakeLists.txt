@@ -6,4 +6,5 @@ set(CMAKE_C_STANDARD 11)
 add_executable(untitled main.c
         cmake-build-debug/mergeParalelo.c
         cmake-build-debug/mergeNo.c
+        pruebaTruncar.c
 )

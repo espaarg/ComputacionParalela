@@ -200,6 +200,30 @@ mergeParalelo.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/mergeParalelo.c.s
 .PHONY : mergeParalelo.c.s
 
+pruebaTruncar.obj: pruebaTruncar.c.obj
+.PHONY : pruebaTruncar.obj
+
+# target to build an object file
+pruebaTruncar.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/pruebaTruncar.c.obj
+.PHONY : pruebaTruncar.c.obj
+
+pruebaTruncar.i: pruebaTruncar.c.i
+.PHONY : pruebaTruncar.i
+
+# target to preprocess a source file
+pruebaTruncar.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/pruebaTruncar.c.i
+.PHONY : pruebaTruncar.c.i
+
+pruebaTruncar.s: pruebaTruncar.c.s
+.PHONY : pruebaTruncar.s
+
+# target to generate assembly for a file
+pruebaTruncar.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/pruebaTruncar.c.s
+.PHONY : pruebaTruncar.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -218,6 +242,9 @@ help:
 	@echo ... mergeParalelo.obj
 	@echo ... mergeParalelo.i
 	@echo ... mergeParalelo.s
+	@echo ... pruebaTruncar.obj
+	@echo ... pruebaTruncar.i
+	@echo ... pruebaTruncar.s
 .PHONY : help
 
 
