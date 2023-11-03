@@ -5,6 +5,7 @@
 #include <mpi.h>
 //#include <iostream>
 
+
 int main(int argc, char **argv) {
 
     //declaracion de las variables a utilizar
@@ -45,7 +46,5 @@ int main(int argc, char **argv) {
     qsort(subArreglo, tamanio_arreglo/(size-1), sizeof(int), compararElementos);
 
     MPI_Finalize();
-
-
 
 }
